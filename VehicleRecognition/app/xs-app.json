@@ -1,0 +1,24 @@
+{
+  "welcomeFile": "/vehicle-ui/webapp/index.html",
+  "authenticationMethod": "none",
+  "routes": [
+    {
+      "source": "^/odata/v4/(.*)$",
+      "target": "/odata/v4/$1",
+      "destination": "srv-api",
+      "authenticationType": "none"
+    },
+    {
+      "source": "^/vehicle-ui/webapp/(.*)$",
+      "target": "/vehicle-ui/webapp/$1",
+      "localDir": ".",
+      "authenticationType": "none"
+    },
+    {
+      "source": "^/(.*)$",
+      "target": "/vehicle-ui/webapp/$1",
+      "localDir": ".",
+      "authenticationType": "none"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+<mvc:View
+    controllerName="com.example.vehicleui.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:u="sap.ui.unified"
+    xmlns:l="sap.ui.layout">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <l:VerticalLayout
+                class="sapUiContentPadding"
+                width="100%">
+                <Label text="{i18n>imageUploadLabel}" />
+                <u:FileUploader
+                    id="fileUploader"
+                    name="myFileUpload"
+                    tooltip="{i18n>imageUploadTooltip}"
+                    fileType="png,jpg,jpeg"
+                    change="onFileChange"
+                    width="100%" />
+                <Button
+                    id="uploadButton"
+                    text="{i18n>uploadButtonText}"
+                    press="onUploadPress"
+                    type="Emphasized"
+                    class="sapUiSmallMarginTop" />
+                
+                <Label text="{i18n>extractedNumberLabel}" class="sapUiSmallMarginTop" />
+                <Input
+                    id="extractedNumberInput"
+                    value="{ui>/extractedNumber}"
+                    editable="false"
+                    width="100%" />
+
+                <Label text="{i18n>ocrMessageLabel}" class="sapUiSmallMarginTop" />
+                <Text
+                    id="ocrMessageText"
+                    text="{ui>/ocrMessage}" />
+
+                <Toolbar class="sapUiSmallMarginTopBottom">
+                    <Title text="{i18n>pastEntriesTableTitle}" level="H2"/>
+                </Toolbar>
+                <Table
+                    id="vehicleEntriesTable"
+                    inset="false"
+                    items="{
+                        path: '/VehicleEntries',
+                        sorter: {
+                            path: 'timestamp',
+                            descending: true
+                        }
+                    }"
+                    class="sapUiResponsiveMargin"
+                    width="auto">
+                    <columns>
+                        <Column>
+                            <Text text="{i18n>tableColumnVehicleNumber}" />
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="{i18n>tableColumnTimestamp}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <Text text="{vehicleNumber}" />
+                                <Text text="{
+                                    path: 'timestamp',
+                                    type: 'sap.ui.model.type.DateTime',
+                                    formatOptions: {
+                                        style: 'medium'
+                                    }
+                                }" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </l:VerticalLayout>
+        </content>
+    </Page>
+</mvc:View>
