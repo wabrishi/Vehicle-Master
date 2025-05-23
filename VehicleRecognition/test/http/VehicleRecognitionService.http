@@ -1,0 +1,53 @@
+@server=http://localhost:4004
+@username=alice
+@password=
+
+
+### VehicleEntries
+# @name VehicleEntries_GET
+GET {{server}}/odata/v4/vehicle-recognition/VehicleEntries
+Authorization: Basic {{username}}:{{password}}
+
+
+### VehicleEntries
+# @name VehicleEntries_POST
+POST {{server}}/odata/v4/vehicle-recognition/VehicleEntries
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "2900209c-bb7e-478d-a699-8be1dfa837bf",
+  "vehicleNumber": "vehicleNumber-2900209",
+  "timestamp": "2016-01-18T00:00:00.000Z"
+}
+
+
+### VehicleEntries
+# @name VehicleEntries_PATCH
+PATCH {{server}}/odata/v4/vehicle-recognition/VehicleEntries/2900209c-bb7e-478d-a699-8be1dfa837bf
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "ID": "2900209c-bb7e-478d-a699-8be1dfa837bf",
+  "vehicleNumber": "vehicleNumber-2900209",
+  "timestamp": "2016-01-18T00:00:00.000Z"
+}
+
+
+### VehicleEntries
+# @name VehicleEntries_DELETE
+DELETE {{server}}/odata/v4/vehicle-recognition/VehicleEntries/2900209c-bb7e-478d-a699-8be1dfa837bf
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+
+### processImage
+# @name processImage_POST
+POST {{server}}/odata/v4/vehicle-recognition/processImage
+Content-Type: application/json
+Authorization: Basic {{username}}:{{password}}
+
+{
+  "imageData": "imageData-29667478"
+}

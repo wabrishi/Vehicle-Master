@@ -4,6 +4,7 @@
     xmlns="sap.m"
     xmlns:u="sap.ui.unified"
     xmlns:l="sap.ui.layout">
+    <App id="app">
     <Page id="page" title="{i18n>title}">
         <content>
             <l:VerticalLayout
@@ -76,5 +77,5 @@
                 </Table>
             </l:VerticalLayout>
         </content>
-    </Page>
+    </Page></App>
 </mvc:View>

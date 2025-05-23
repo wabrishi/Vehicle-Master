@@ -10,7 +10,7 @@
         "title": "{{appTitle}}",
         "dataSources": {
             "mainService": {
-                "uri": "/odata/v4/vehicle-service/",
+                "uri": "/odata/v4/vehicle-recognition/",
                 "type": "OData",
                 "settings": {
                     "odataVersion": "4.0"
